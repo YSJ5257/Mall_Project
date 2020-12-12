@@ -35,7 +35,7 @@ public class IndexFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		
-		System.out.println("dongjunfeng");
+		System.out.println("yinshuaijie");
 		chain.doFilter(request, response);
 	}
 
