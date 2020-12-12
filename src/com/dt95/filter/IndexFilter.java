@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * 首页过滤器，用于首页加载数据
+ * 棣栭〉杩囨护
  */
 @WebFilter("/index.jsp")
 public class IndexFilter implements Filter {
