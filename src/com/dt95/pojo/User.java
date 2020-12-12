@@ -1,15 +1,17 @@
 package com.dt95.pojo;
 
+import java.util.Date;
+
 public class User {
 	private int user_id;
-	private int username;
-	private int password;
-	private int sex;
-	private int brith;
+	private String username;
+	private String password;
+	private char sex;
+	private Date brith;
 	public User() {
 		super();
 	}
-	public User(int user_id, int username, int password, int sex, int brith) {
+	public User(int user_id, String username, String password, char sex, Date brith) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
@@ -23,29 +25,31 @@ public class User {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
-	public void setUsername(int username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getSex() {
+	public char getSex() {
 		return sex;
 	}
-	public void setSex(int sex) {
+	public void setSex(char sex) {
 		this.sex = sex;
 	}
-	public int getBrith() {
+	public Date getBrith() {
 		return brith;
 	}
-	public void setBrith(int brith) {
+	public void setBrith(Date brith) {
 		this.brith = brith;
 	}
+	
+	
 	
 }
