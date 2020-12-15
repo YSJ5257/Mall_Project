@@ -1,4 +1,4 @@
-$(function () {
+$(function () { 
     $(".num .sub").click(function () {
         var c = parseInt($(this).siblings("span").text());
         if (c <= 1) {
