@@ -72,6 +72,7 @@
     </div>
 </div>
 <div id="app">
+<form action="order" id="myForm" method="post">
 <div class="cart mt"><!-----------------logo------------------->
     <!--<div class="logo"><h1 class="wrapper clearfix"><a href="index.jsp"><img class="fl" src="img/temp/logo.png"></a><img class="top" src="img/temp/cartTop01.png"></h1></div>-->
     <!-----------------site------------------->
@@ -90,11 +91,12 @@
         
         <!-- ***************************************遍历购物车***************************************** -->
 		
+		
         <c:forEach items="${cartGoodsList }" var="item">
         	<div class="th">
            	 <div class="pro clearfix">
             	<label class="fl">
-           	 		<input type="checkbox" v-model="shoppingList" value="${item }"/>
+           	 		<input type="checkbox" v-model="shoppingList" value="${item.shopping_trolley_id }"/>
            		 	<span></span>
             	</label>
             	<a class="fl"  href="#">
@@ -113,11 +115,15 @@
             <div class="price" @click="getShoppingTrolleyId(${item.shopping_trolley_id })" ><a class="del" href="javascript:void(0)">删除</a></div>
         </div>
         </c:forEach>
+        
+       
+        
+        
         <div class="goOn">空空如也~<a href="index.jsp">去逛逛</a></div>
         <div class="tr clearfix"><label class="fl"><input class="checkAll" type="checkbox"/><span></span></label>
             <p class="fl"><a href="#">全选</a><a href="#" class="del">删除</a></p>
             <p class="fr"><span>共<small id="sl">0</small>件商品</span><span>合计:&nbsp;<small id="all">￥0.00</small></span><a
-                    href="javascript:void(0)" class="count" @click="clearing">结算</a></p></div><!-- order -->
+                    href="javascript:void(0)" class="count" @click="clearing" >结算</a></p></div><!-- @click="clearing" -->
     
 </div>
 <div class="mask"></div>
@@ -129,7 +135,9 @@
     </p>
 </div>
 </div>
+</form>
 </div>
+
 <!-- ########################################异步请求############################################### -->
 <script type="text/javascript" src="js/vue.min.js"></script>
 <script src="js/axios.js" type="text/javascript"></script>
@@ -152,7 +160,7 @@
 				}).then((ret)=>{});
 			},
 			clearing:function(){
-				
+				$("#myForm").submit();
 			}
 		}
 	});
