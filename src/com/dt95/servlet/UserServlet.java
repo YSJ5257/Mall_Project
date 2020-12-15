@@ -55,16 +55,16 @@ public class UserServlet extends HttpServlet {
 		boolean findUserRegInfo = us.findUserRegInfo(email);
 		//查询手机号是否注册
 		boolean findUserPhoneInfo = us.findUserPhoneInfo(phone);
-		String string = "";
+		
 		if((findUserLoginInfo || findUserRegInfo || findUserPhoneInfo)||(uname== ""||email==""||phone==""||pwd=="")){
-			string = "账户已注册，请重新输入！";
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else{
 			/*string = "welcome！"+parameter;*/
 			response.sendRedirect("reg");
 		}
 		
 		PrintWriter out = response.getWriter();
-		out.write(string);
+		out.write(11);
 		out.flush();
 		out.close();
 }
