@@ -227,8 +227,10 @@
                         class="fl add" src="img/temp/add.jpg">
                     <p class="please fl">请选择商品属性!</p></div>
             </div>
-            <div class="btns clearfix"><a href="#2"><p class="buy fl">立即购买</p></a><a href="#2"><p class="cart fr">
-                加入购物车</p></a></div>
+            <div class="btns clearfix">
+            	<a href="#2"><p class="buy fl">立即购买</p></a>
+           		 <a href="#2"><p class="cart fr"> 加入购物车</p></a>
+            </div>
         </div>
     </div>
     <a class="more" href="proDetail">查看更多细节</a></div><!--返回顶部-->
