@@ -229,7 +229,11 @@
             </div>
             <div class="btns clearfix">
             	<a href="#2"><p class="buy fl">立即购买</p></a>
+<<<<<<< HEAD
+           		 <a href="#2"><p class="cart fr"> 加入购物车</p></a>
+=======
             	<a href="#2"><p class="cart fr">加入购物车</p></a>
+>>>>>>> branch 'master' of https://github.com/YSJ5257/Mall_Project.git
             </div>
         </div>
     </div>
