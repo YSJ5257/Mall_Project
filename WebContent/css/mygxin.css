@@ -77,7 +77,7 @@
     margin-bottom: 30px;
 }
 
-/*个人信息*/
+/*涓汉淇℃伅*/
 .Bott .you .tx {
     padding-bottom: 10px;
     border-bottom: 1px solid #E6E6E6;
@@ -140,33 +140,61 @@
     margin-top: 10px;
 }
 
-/*地址管理*/
+
+				/* ##############################鍦板潃绠＄悊############################### */
 .Bott .you .add {
     display: flex;
-    justify-content: space-around;
+   /* justify-content: space-around; */
+	flex-wrap:wrap;
 }
 
-.Bott .you .add div:nth-child(1) {
-    width: 268px;
-    height: 178px;
+
+.Bott .you .add div{
+   width: 218px;
+   height: 158px;
     border: 1px solid #E0E0E0;
-    text-align: center;
+    padding: 20px 0 0 24px;
+    color: #757575;
+    line-height: 20px;
+	margin: 0px 17px 10px 17px;
+}
+.Bott .you .add div a {
+    color: #A10000;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+.Bott .you .add div:nth-child(1) {
+    border: 1px solid #E0E0E0;
+    text-align:center;
 }
 
 .Bott .you .add div:nth-child(1) a {
-    width: 30px;
+    width: 60px;
     display: block;
-    margin: 60px auto 0;
+    margin: 35px 0px 10px 75px;
+	vertical-align: top;
 }
 
-.Bott .you .add div:nth-child(2) {
+/* .Bott .you .add div:nth-child(2) {
     width: 244px;
     height: 158px;
     border: 1px solid #E0E0E0;
     padding: 20px 0 0 24px;
     color: #757575;
     line-height: 20px;
-}
+} */
+
+
+
+
+
+
 
 .Bott .you .add div p:nth-child(1) {
     font-size: 18px;
@@ -174,23 +202,25 @@
     color: #262626;
 }
 
-.Bott .you .add div:nth-child(2) a {
+/* .Bott .you .add div:nth-child(2) a {
     color: #A10000;
     display: inline-block;
     margin-right: 10px;
-}
+} */
 
-.Bott .you .add div:nth-child(3) {
+/* .Bott .you .add div:nth-child(3) {
     width: 268px;
     height: 178px;
-}
+} */
 
-/*添加地址*/
+					/* ############################################################# */
+
+/*娣诲姞鍦板潃*/
 body {
     position: relative;
 }
 
-/*遮罩*/
+/*閬僵*/
 .mask {
     position: absolute;
     top: 0;
@@ -202,7 +232,7 @@ body {
     display: none;
 }
 
-/* 	提交订单页面的修改地址为居中 */
+/* 	鎻愪氦璁㈠崟椤甸潰鐨勪慨鏀瑰湴鍧�涓哄眳涓� */
 .editAddre {
     position: fixed;
     top: 50%;
@@ -294,3 +324,6 @@ body {
     background: #A10000;
     color: #FFFFFF;
 }
+
+
+

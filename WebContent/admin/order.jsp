@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/mygxin.css"/>
 </head>
 <body><!----------------------------------------order------------------>
+<div id="app">
 <div class="head ding">
     <div class="wrapper clearfix">
         <div class="clearfix" id="top"><h1 class="fl"><a href="index.jsp"><img src="img/logo.png"/></a></h1>
@@ -78,26 +80,16 @@
         <div class="orderL fl"><!--------h3----------------><h3>收件信息<a href="#" class="fr">新增地址</a></h3>
             <!--------addres---------------->
             <div class="addres clearfix">
-                <div class="addre fl on">
-                    <div class="tit clearfix"><p class="fl">张三1 <span class="default">[默认地址]</span></p>
-                        <p class="fr"><a href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-                        <p>15732570937</p></div>
-                </div>
-                <div class="addre fl">
-                    <div class="tit clearfix"><p class="fl">张三2</p>
+                
+                <c:forEach items="${addressList }" var="item">
+                	<div class="addre fl">
+                    <div class="tit clearfix"><p class="fl">${item.consignee_name }</p>
                         <p class="fr"><a href="#" class="setDefault">设为默认</a><span>|</span><a
                                 href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-                        <p>15732570937</p></div>
-                </div>
-                <div class="addre fl">
-                    <div class="tit clearfix"><p class="fl">张三3</p>
-                        <p class="fr"><a href="#" class="setDefault">设为默认</a><span>|</span><a
-                                href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-                        <p>15732570937</p></div>
-                </div>
+                    <div class="addCon"><p>${item.provincer_name }&nbsp;${item.city_name }&nbsp;${item.quxian_name }&nbsp;${item.minute_adress }</p>
+                        <p>${item.consignee_phone }</p></div>
+                	</div>
+                </c:forEach>
             </div>
             <h3>支付方式</h3><!--------way---------------->
             <div class="way clearfix"><img class="on" src="img/temp/way01.jpg"><img src="img/temp/way02.jpg"><img
@@ -108,40 +100,34 @@
         </div>
         <div class="orderR fr">
             <div class="msg"><h3>订单内容<a href="cart" class="fr">返回购物车</a></h3><!--------ul---------------->
+ 
+ 			<!-- ##############################订单商品的遍历#################################### -->
+ 				
+                <c:forEach items="${indentGoods }" var="item">
                 <ul class="clearfix">
-                    <li class="fl"><img src="img/temp/order01.jpg"></li>
-                    <li class="fl"><p>创意现代简约干花花瓶摆件</p>
-                        <p>颜色分类：烟灰色玻璃瓶</p>
-                        <p>数量：1</p></li>
-                    <li class="fr">￥69.90</li>
+                    <li class="fl"><img style="width:87px" src="${item.specification_photo }"></li>
+                    <li class="fl"><p>${item.goods_describe }</p>
+                        <p>颜色分类：${item.specification_name }</p>
+                        <p>数量：${item.specification_number }</p></li>
+                    <li id="goodsPrice" class="fr">￥${item.specification_price*item.specification_number }</li>
                 </ul>
-                <ul class="clearfix">
-                    <li class="fl"><img src="img/temp/order02.jpg"></li>
-                    <li class="fl"><p>创意现代简约干花花瓶摆件</p>
-                        <p>颜色分类：烟灰色玻璃瓶</p>
-                        <p>数量：1</p></li>
-                    <li class="fr">￥69.90</li>
-                </ul>
+                </c:forEach>
             </div><!--------tips---------------->
-            <div class="tips"><p><span class="fl">商品金额：</span><span class="fr">￥139.80</span></p>
+            <div class="tips"><p><span class="fl">商品金额：</span><span class="fr">￥${total }</span></p>
                 <p><span class="fl">优惠金额：</span><span class="fr">￥0.00</span></p>
                 <p><span class="fl">运费：</span><span class="fr">免运费</span></p></div><!--------tips count---------------->
-            <div class="count tips"><p><span class="fl">合计：</span><span class="fr">￥139.80</span></p></div>
+            <div class="count tips"><p><span class="fl">合计：</span><span class="fr">￥${total }</span></p></div>
             <!--<input type="button" name="" value="去支付">--> <a href="ok" class="pay">去支付</a></div>
     </div>
 </div><!--编辑弹框--><!--遮罩-->
 <div class="mask"></div>
 <div class="adddz editAddre">
     <form action="#" method="get"><input type="text" placeholder="姓名" class="on"/><input type="text" placeholder="手机号"/>
-        <div class="city"><select name="">
-            <option value="省份/自治区">省份/自治区</option>
-        </select><select>
-            <option value="城市/地区">城市/地区</option>
-        </select><select>
-            <option value="区/县">区/县</option>
-        </select><select>
-            <option value="配送区域">配送区域</option>
-        </select></div>
+        <div class="city">
+        <select id="s_province" name="s_province"></select> 
+		<select id="s_city" name="s_city" ></select> 
+		<select id="s_county" name="s_county"></select>
+        </div>
         <textarea name="" rows="" cols="" placeholder="详细地址"></textarea><input type="text" placeholder="邮政编码"/>
         <div class="bc"><input type="button" value="保存"/><input type="button" value="取消"/></div>
     </form>
@@ -183,9 +169,40 @@
     </div>
     <p class="dibu">最家家居&copy;2013-2017公司版权所有 京ICP备080100-44备0000111000号<br/>
         违法和不良信息举报电话：188-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p></div>
+</div>
+
 <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/pro.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script src="js/axios.js" type="text/javascript"></script>
+<script type="text/javascript">
+	const app=new Vue({
+		el:"#app",
+		data:{
+			total:""
+		},
+		methods:{
+			
+		},
+		created:function(){
+			
+		}
+	});
+</script>
+
+<script class="resources library" src="js/area.js" type="text/javascript"></script>
+<script type="text/javascript">_init_area();</script>
+<script type="text/javascript">
+	var Gid  = document.getElementById ;
+	var showArea = function(){
+		Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
+		Gid('s_city').value + " - 县/区" + 
+		Gid('s_county').value + "</h3>"
+	};
+	Gid('s_county').setAttribute('onchange','showArea()');
+</script>
+
 </body>
 </html>

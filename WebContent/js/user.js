@@ -97,11 +97,12 @@ $(function () {
         $(".pj").hide();
         $(".chak").hide()
     });
-    $("#addxad").click(function () {
+   /* $("#addxad").click(function () {
         $(".mask").show();
         $(".adddz").show()
-    });
-    $("#dizhi").hover(function () {
+    });*/
+    
+    /*$("#dizhi").hover(function () {
         var a = "";
         a = '<p class="addp"><a href="#"  id="readd">修改</a><a href="#" id="deladd">删除</a></p>';
         $(this).append(a);
@@ -123,7 +124,7 @@ $(function () {
             }
         });
         $(".addp").remove()
-    });
+    });*/
     $(".vewwl").hover(function () {
         $(this).children(".wuliu").fadeIn(100)
     }, function () {

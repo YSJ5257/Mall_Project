@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -11,7 +12,7 @@
 <body><!------------------------------head------------------------------>
 <div class="head ding">
     <div class="wrapper clearfix">
-        <div class="clearfix" id="top"><h1 class="fl"><a href="index.jsp"><img src="img/logo.png"/></a></h1>
+        <div class="clearfix" id="top"><h1 class="fl"><a href="index"><img src="img/logo.png"/></a></h1>
             <div class="fr clearfix" id="top1"><p class="fl"><a href="#" id="login">登录</a><a href="#" id="reg">注册</a>
             </p>
                 <form action="#" method="get" class="fl"><input type="text" placeholder="搜索"/><input type="button"/>
@@ -22,7 +23,7 @@
             </div>
         </div>
         <ul class="clearfix" id="bott">
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="index">首页</a></li>
             <li><a href="#">所有商品</a>
                 <div class="sList">
                     <div class="wrapper  clearfix"><a href="paint">
@@ -70,7 +71,7 @@
     </div>
 </div><!------------------------------idea------------------------------>
 <div class="address mt" id="add">
-    <div class="wrapper clearfix"><a href="index.jsp" class="fl">首页</a><span>/</span><a href="mygxin" class="on">个人中心</a>
+    <div class="wrapper clearfix"><a href="index" class="fl">首页</a><span>/</span><a href="mygxin" class="on">个人中心</a>
     </div>
 </div><!------------------------------Bott------------------------------>
 <div class="Bott">

@@ -15,7 +15,7 @@ import com.dt95.service.impl.CartServiceImpl;
 @WebServlet("/cartAjax")
 public class CartAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      private CartServiceImpl csi = new CartServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,9 +29,8 @@ public class CartAjaxServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id =Integer.parseInt(request.getParameter("id"));
-		CartServiceImpl csi = new CartServiceImpl();
+		
 		int result = csi.deleteCartByCartId(id);
-		System.out.println(result);
 	}
 
 	/**

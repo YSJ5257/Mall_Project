@@ -19,4 +19,16 @@ public class CartServiceImpl implements CartService{
 		return cdi.deleteCartByCartId(id);
 	}
 
+	@Override
+	public ShoppingTrolley getCartById(int id) {
+		// TODO Auto-generated method stub
+		return cdi.getCartById(id);
+	}
+
+	@Override
+	public int updateCartNumber(int id,int num) {
+		// TODO Auto-generated method stub
+		return cdi.updateCartNumber(id ,num);
+	}
+
 }

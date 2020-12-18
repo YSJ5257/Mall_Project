@@ -40,4 +40,30 @@ public class CartDaoImpl implements CartDao{
 		return result;
 	}
 
+	@Override
+	public ShoppingTrolley getCartById(int id) {
+		String sql="SELECT * FROM shopping_trolley WHERE shopping_trolley_id = ?";
+		List<ShoppingTrolley> list=null;
+		try {
+			list = qr.query(sql,new BeanListHandler<>(ShoppingTrolley.class),id );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list.get(0);
+	}
+
+	@Override
+	public int updateCartNumber(int id,int num) {
+		int result=0;
+		String sql="UPDATE `shopping_trolley` SET specification_number=? WHERE shopping_trolley_id=?";
+		try {
+			result = qr.update(sql, num,id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

@@ -93,10 +93,10 @@
 		
 		
         <c:forEach items="${cartGoodsList }" var="item">
-        	<div class="th">
+        	<div id="th" class="th">
            	 <div class="pro clearfix">
             	<label class="fl">
-           	 		<input type="checkbox" v-model="shoppingList" value="${item.shopping_trolley_id }"/>
+           	 		<input type="checkbox" name="shoppingList" value="${item.shopping_trolley_id }"/>
            		 	<span></span>
             	</label>
             	<a class="fl"  href="#">
@@ -109,8 +109,13 @@
             	</a>
             </div>
             <div class="price">￥${item.specification_price }</div>
-            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span
-                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>
+            <div class="number">
+            	<p class="num clearfix">
+            	<img id="sub" class="fl sub" src="img/temp/sub.jpg">
+            	<span class="fl">${item.specification_number }</span>
+            	<input type="hidden" value="${item.shopping_trolley_id }"/>
+            	<img id="add" class="fl add" src="img/temp/add.jpg"></p>
+            </div>
             <div class="price sAll">￥${item.specification_price }</div>
             <div class="price" @click="getShoppingTrolleyId(${item.shopping_trolley_id })" ><a class="del" href="javascript:void(0)">删除</a></div>
         </div>
@@ -122,9 +127,12 @@
         <div class="goOn">空空如也~<a href="index.jsp">去逛逛</a></div>
         <div class="tr clearfix"><label class="fl"><input class="checkAll" type="checkbox"/><span></span></label>
             <p class="fl"><a href="#">全选</a><a href="#" class="del">删除</a></p>
-            <p class="fr"><span>共<small id="sl">0</small>件商品</span><span>合计:&nbsp;<small id="all">￥0.00</small></span><a
-                    href="javascript:void(0)" class="count" @click="clearing" >结算</a></p></div><!-- @click="clearing" -->
-    
+            <p class="fr"><span>共<small id="sl">0</small>件商品</span><span>合计:&nbsp;
+            <small  id="all">￥0.00</small>
+            <input type="hidden" name="total" />
+            </span><a  href="javascript:void(0)" class="count" @click="clearing" >结算</a></p>
+         </div>
+    	
 </div>
 <div class="mask"></div>
 	<div class="tipDel">

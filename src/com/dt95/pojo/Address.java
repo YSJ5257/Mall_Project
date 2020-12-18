@@ -1,26 +1,26 @@
 package com.dt95.pojo;
 
-public class Adress {
+public class Address {
 	private int adress_id;
 	private int user_id;
-	private String user_name;
-	private int user_phone;
+	private String consignee_name;
+	private String consignee_phone;
 	private String provincer_name;
 	private String city_name;
 	private String quxian_name;
 	private String minute_adress;
 	private String postcode_adress;
 	
-	public Adress() {
+	public Address() {
 		super();
 	}
-	public Adress(int adress_id, int user_id, String user_name, int user_phone, String provincer_name, String city_name,
-			String quxian_name, String minute_adress, String postcode_adress) {
+	public Address(int adress_id, int user_id, String consignee_name, String consignee_phone, String provincer_name,
+			String city_name, String quxian_name, String minute_adress, String postcode_adress) {
 		super();
 		this.adress_id = adress_id;
 		this.user_id = user_id;
-		this.user_name = user_name;
-		this.user_phone = user_phone;
+		this.consignee_name = consignee_name;
+		this.consignee_phone = consignee_phone;
 		this.provincer_name = provincer_name;
 		this.city_name = city_name;
 		this.quxian_name = quxian_name;
@@ -39,17 +39,17 @@ public class Adress {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getConsignee_name() {
+		return consignee_name;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setConsignee_name(String consignee_name) {
+		this.consignee_name = consignee_name;
 	}
-	public int getUser_phone() {
-		return user_phone;
+	public String getConsignee_phone() {
+		return consignee_phone;
 	}
-	public void setUser_phone(int user_phone) {
-		this.user_phone = user_phone;
+	public void setConsignee_phone(String consignee_phone) {
+		this.consignee_phone = consignee_phone;
 	}
 	public String getProvincer_name() {
 		return provincer_name;
@@ -81,5 +81,6 @@ public class Adress {
 	public void setPostcode_adress(String postcode_adress) {
 		this.postcode_adress = postcode_adress;
 	}
+	
 	
 }
