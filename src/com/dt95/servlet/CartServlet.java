@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dt95.pojo.ShoppingTrolley;
+import com.dt95.pojo.User;
 import com.dt95.service.impl.CartServiceImpl;
 
 /**
@@ -34,8 +35,8 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		List<ShoppingTrolley> list = csi.getCartByUserId(1);
+		User user = (User) request.getSession().getAttribute("user");
+		List<ShoppingTrolley> list = csi.getCartByUserId(user.getUser_id());
 		request.setAttribute("cartGoodsList", list);
 		request.getRequestDispatcher("admin/cart.jsp").forward(request, response);
 	}

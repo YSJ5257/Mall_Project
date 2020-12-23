@@ -7,7 +7,7 @@ public class Order {
 	private int payment;
 	private String payment_type;
 	private int post_fee;
-	private int status; //订单支付状态：1，未付款，2，已付款3，未发货4，已发货，5，交易成功，6交易关闭
+	private int status; 
 	private Date create_time;
 	private String shipping_name;
 	private int user_id;
@@ -16,12 +16,14 @@ public class Order {
 	private Date consign_time;
 	private Date end_time;
 	private Date closse_time;
+	private String order_number;//订单编号
 	public Order() {
 		super();
 	}
+	
 	public Order(int order_id, int payment, String payment_type, int post_fee, int status, Date create_time,
 			String shipping_name, int user_id, int buy_rate, Date payment_time, Date consign_time, Date end_time,
-			Date closse_time) {
+			Date closse_time, String order_number) {
 		super();
 		this.order_id = order_id;
 		this.payment = payment;
@@ -36,7 +38,9 @@ public class Order {
 		this.consign_time = consign_time;
 		this.end_time = end_time;
 		this.closse_time = closse_time;
+		this.order_number = order_number;
 	}
+
 	public int getOrder_id() {
 		return order_id;
 	}
@@ -114,6 +118,14 @@ public class Order {
 	}
 	public void setClosse_time(Date closse_time) {
 		this.closse_time = closse_time;
+	}
+
+	public String getOrder_number() {
+		return order_number;
+	}
+
+	public void setOrder_number(String order_number) {
+		this.order_number = order_number;
 	}
 	
 	

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.dt95.pojo.Address;
 import com.dt95.pojo.ShoppingTrolley;
 import com.dt95.service.impl.AddressServiceImpl;
@@ -48,13 +50,12 @@ public class OrderServlet extends HttpServlet {
 				ShoppingTrolley trolley = csi.getCartById(id);
 				total+=trolley.getSpecification_price()*trolley.getSpecification_number();
 				list.add(trolley);
-				//csi.deleteCartByCartId(id);
 			}
-			request.setAttribute("indentGoods", list);//订单
-			request.setAttribute("total", total);//订单
+			HttpSession session = request.getSession();
+			session.setAttribute("indentGoods", list);//订单
+			session.setAttribute("total", total);//订单总金额
 			
-			List<Address> address = asi.getAllByUserId(1);
-			request.setAttribute("addressList", address);
+			
 		}
 		
 		

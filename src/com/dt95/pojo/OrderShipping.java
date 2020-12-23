@@ -2,27 +2,27 @@ package com.dt95.pojo;
 
 public class OrderShipping {
 	private int order_id ;
-	private String receiver_name;
-	private String receiver_phone;
-	private String receiver_province;
-	private String receiver_city;
-	private String receiver_district;
-	private String receiver_address;
-	private String receiver_zip;
+	private String consignee_name;
+	private String consignee_phone;
+	private String province_name;
+	private String city_name;
+	private String quxian_name;
+	private String minute_adress;
+	private String postcode_adress;
 	public OrderShipping() {
 		super();
 	}
-	public OrderShipping(int order_id, String receiver_name, String receiver_phone, String receiver_province,
-			String receiver_city, String receiver_district, String receiver_address, String receiver_zip) {
+	public OrderShipping(int order_id, String consignee_name, String consignee_phone, String province_name,
+			String city_name, String quxian_name, String minute_adress, String postcode_adress) {
 		super();
 		this.order_id = order_id;
-		this.receiver_name = receiver_name;
-		this.receiver_phone = receiver_phone;
-		this.receiver_province = receiver_province;
-		this.receiver_city = receiver_city;
-		this.receiver_district = receiver_district;
-		this.receiver_address = receiver_address;
-		this.receiver_zip = receiver_zip;
+		this.consignee_name = consignee_name;
+		this.consignee_phone = consignee_phone;
+		this.province_name = province_name;
+		this.city_name = city_name;
+		this.quxian_name = quxian_name;
+		this.minute_adress = minute_adress;
+		this.postcode_adress = postcode_adress;
 	}
 	public int getOrder_id() {
 		return order_id;
@@ -30,48 +30,49 @@ public class OrderShipping {
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
-	public String getReceiver_name() {
-		return receiver_name;
+	public String getConsignee_name() {
+		return consignee_name;
 	}
-	public void setReceiver_name(String receiver_name) {
-		this.receiver_name = receiver_name;
+	public void setConsignee_name(String consignee_name) {
+		this.consignee_name = consignee_name;
 	}
-	public String getReceiver_phone() {
-		return receiver_phone;
+	public String getConsignee_phone() {
+		return consignee_phone;
 	}
-	public void setReceiver_phone(String receiver_phone) {
-		this.receiver_phone = receiver_phone;
+	public void setConsignee_phone(String consignee_phone) {
+		this.consignee_phone = consignee_phone;
 	}
-	public String getReceiver_province() {
-		return receiver_province;
+	public String getProvince_name() {
+		return province_name;
 	}
-	public void setReceiver_province(String receiver_province) {
-		this.receiver_province = receiver_province;
+	public void setProvince_name(String province_name) {
+		this.province_name = province_name;
 	}
-	public String getReceiver_city() {
-		return receiver_city;
+	public String getCity_name() {
+		return city_name;
 	}
-	public void setReceiver_city(String receiver_city) {
-		this.receiver_city = receiver_city;
+	public void setCity_name(String city_name) {
+		this.city_name = city_name;
 	}
-	public String getReceiver_district() {
-		return receiver_district;
+	public String getQuxian_name() {
+		return quxian_name;
 	}
-	public void setReceiver_district(String receiver_district) {
-		this.receiver_district = receiver_district;
+	public void setQuxian_name(String quxian_name) {
+		this.quxian_name = quxian_name;
 	}
-	public String getReceiver_address() {
-		return receiver_address;
+	public String getMinute_adress() {
+		return minute_adress;
 	}
-	public void setReceiver_address(String receiver_address) {
-		this.receiver_address = receiver_address;
+	public void setMinute_adress(String minute_adress) {
+		this.minute_adress = minute_adress;
 	}
-	public String getReceiver_zip() {
-		return receiver_zip;
+	public String getPostcode_adress() {
+		return postcode_adress;
 	}
-	public void setReceiver_zip(String receiver_zip) {
-		this.receiver_zip = receiver_zip;
+	public void setPostcode_adress(String postcode_adress) {
+		this.postcode_adress = postcode_adress;
 	}
+	
 	
 	
 }

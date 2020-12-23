@@ -35,8 +35,7 @@ public class AddressServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/*List<Address> address = asi.getAllByUserId(1);
-		request.setAttribute("addressList", address);*/
+		
 		
 		request.getRequestDispatcher("admin/address.jsp").forward(request, response);
 	}

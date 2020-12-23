@@ -77,32 +77,32 @@
                                                                                    src="img/temp/cartTop02.png"></p>
     </div><!-----------------orderCon------------------->
     <div class="orderCon wrapper clearfix">
-        <div class="orderL fl"><!--------h3----------------><h3>收件信息<a href="#" class="fr">新增地址</a></h3>
+        <div class="orderL fl"><!--------h3----------------><h3>收件信息<a href="address" class="fr">地址管理</a></h3>
             <!--------addres---------------->
+            
             <div class="addres clearfix">
-                
-                <c:forEach items="${addressList }" var="item">
-                	<div class="addre fl">
-                    <div class="tit clearfix"><p class="fl">${item.consignee_name }</p>
-                        <p class="fr"><a href="#" class="setDefault">设为默认</a><span>|</span><a
-                                href="#">删除</a><span>|</span><a href="#" class="edit">编辑</a></p></div>
-                    <div class="addCon"><p>${item.provincer_name }&nbsp;${item.city_name }&nbsp;${item.quxian_name }&nbsp;${item.minute_adress }</p>
-                        <p>${item.consignee_phone }</p></div>
+                <div @click="checkedAddress(index,item)" :key="index" :class="{'addre':true,'fl':true,'on':index==current}"  v-for="(item,index) in addressList" class="clearfix">
+                    <div class="tit clearfix"><p class="fl">{{item.consignee_name }}</p></div>
+                    <div class="addCon"><p>{{item.provincer_name }}&nbsp;{{item.city_name }}&nbsp;{{item.quxian_name }}&nbsp;{{item.minute_adress }}</p>
+                        <p>{{item.consignee_phone }}</p></div>
                 	</div>
-                </c:forEach>
             </div>
+             <div class="holder"></div>
             <h3>支付方式</h3><!--------way---------------->
-            <div class="way clearfix"><img class="on" src="img/temp/way01.jpg"><img src="img/temp/way02.jpg"><img
-                    src="img/temp/way03.jpg"><img src="img/temp/way04.jpg"></div>
+            <div class="way clearfix">
+	            <img @click="way('支付宝支付')" class="on" src="img/temp/way01.jpg">
+	            <img @click="way('微信支付')" src="img/temp/way02.jpg">
+	            <img @click="way('银联宝支付')" src="img/temp/way03.jpg">
+	            <img @click="way('货到付款')" src="img/temp/way04.jpg">
+            </div>
             <h3>选择快递</h3><!--------dis---------------->
-            <div class="dis clearfix"><span class="on">顺风快递</span><span>百世汇通</span><span>圆通快递</span><span>中通快递</span>
+            <div class="dis clearfix"><span class="on" @click="shipping('顺丰快递')" >顺风快递</span><span  @click="shipping('百世汇通')">百世汇通</span><span  @click="shipping('圆通快递')">圆通快递</span><span  @click="shipping('中通快递')">中通快递</span>
             </div>
         </div>
         <div class="orderR fr">
             <div class="msg"><h3>订单内容<a href="cart" class="fr">返回购物车</a></h3><!--------ul---------------->
  
  			<!-- ##############################订单商品的遍历#################################### -->
- 				
                 <c:forEach items="${indentGoods }" var="item">
                 <ul class="clearfix">
                     <li class="fl"><img style="width:87px" src="${item.specification_photo }"></li>
@@ -117,21 +117,9 @@
                 <p><span class="fl">优惠金额：</span><span class="fr">￥0.00</span></p>
                 <p><span class="fl">运费：</span><span class="fr">免运费</span></p></div><!--------tips count---------------->
             <div class="count tips"><p><span class="fl">合计：</span><span class="fr">￥${total }</span></p></div>
-            <!--<input type="button" name="" value="去支付">--> <a href="ok" class="pay">去支付</a></div>
+            <a href="ok" class="pay" @click="payment">去支付</a></div>
     </div>
-</div><!--编辑弹框--><!--遮罩-->
-<div class="mask"></div>
-<div class="adddz editAddre">
-    <form action="#" method="get"><input type="text" placeholder="姓名" class="on"/><input type="text" placeholder="手机号"/>
-        <div class="city">
-        <select id="s_province" name="s_province"></select> 
-		<select id="s_city" name="s_city" ></select> 
-		<select id="s_county" name="s_county"></select>
-        </div>
-        <textarea name="" rows="" cols="" placeholder="详细地址"></textarea><input type="text" placeholder="邮政编码"/>
-        <div class="bc"><input type="button" value="保存"/><input type="button" value="取消"/></div>
-    </form>
-</div><!--返回顶部-->
+</div>
 <div class="gotop"><a href="cart">
     <dl>
         <dt><img src="img/gt1.png"/></dt>
@@ -177,32 +165,58 @@
 <script src="js/user.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="js/vue.min.js"></script>
 <script src="js/axios.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript">
+	
 	const app=new Vue({
 		el:"#app",
 		data:{
-			total:""
+			current:0,
+			addressList:"",
+			address:"",
+			payment_type:"支付宝支付",
+			shipping_name:"顺丰快递"
 		},
 		methods:{
-			
+			init:function(){
+				
+				axios.get("addressAjax",{
+					params:{method:"getAddress",jsonData:""}
+				}).then( (ret) =>{
+					this.addressList=ret.data;
+					this.address=this.addressList[0];
+				});
+			},
+			checkedAddress:function(index,item){
+				this.current=index;
+				this.address=item;
+			},
+			payment:function(){
+				axios.get("orderAjax",{
+					params:{
+						address:this.address,
+						payment_type:this.payment_type,
+						shipping_name:this.shipping_name
+					}
+				}).then( (ret) =>{
+					
+				});
+			},
+			way:function(data){
+				this.payment_type=data;
+			},
+			shipping:function(data){
+				this.shipping_name=data;
+			}
 		},
 		created:function(){
-			
+			this.init();
 		}
 	});
+ 	
 </script>
 
-<script class="resources library" src="js/area.js" type="text/javascript"></script>
-<script type="text/javascript">_init_area();</script>
-<script type="text/javascript">
-	var Gid  = document.getElementById ;
-	var showArea = function(){
-		Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
-		Gid('s_city').value + " - 县/区" + 
-		Gid('s_county').value + "</h3>"
-	};
-	Gid('s_county').setAttribute('onchange','showArea()');
-</script>
+
 
 </body>
 </html>

@@ -12,7 +12,7 @@ import com.dt95.util.C3P0Util;
 
 public class CartDaoImpl implements CartDao{
 	//得到数据源
-	QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+	private QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 	
 	@Override
 	public List<ShoppingTrolley> getCartByUserId(int id) {  //获取用户购物车数据
