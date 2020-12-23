@@ -13,18 +13,6 @@
 	}
 	
 </style>
-<style scoped>
-
-  .test-enter,.test-leave-to{
-    opacity: 0;
-  }
-  .test-enter-to,.test-leave{
-    opacity: 1;
-  }
-  .test-enter-active,.test-leave-active{
-    transition: all 2s;
-  }
-</style>
 </head>
 <body>
 	<!------------------------------head------------------------------>
@@ -156,10 +144,11 @@
 					</div>
 					<div class="dlist clearfix">
 						<ul class="fl clearfix" id="wa">
-							<li class="on"><a href="#2">全部有效订单</a></li>
-							<li><a href="#2">待支付</a></li>
-							<li><a href="#2l">待收货</a></li>
-							<li><a href="#2">已关闭</a></li>
+							<li class="on"><a href="#2" @click="allOrders">全部有效订单</a></li>
+							<li><a href="#2" @click="noPayment">待支付</a></li>
+							<li><a href="#2l" @click="noShipping">待发货</a></li>
+							<li><a href="#2" @click="waitReceiving">待收货</a></li>
+							<li><a href="#2" @click="noComment">待评价</a></li>
 						</ul>
 						<form action="#" method="get" class="fr clearfix">
 							<input type="text" name="" id="" value=""
@@ -170,9 +159,9 @@
 				
 <!-- ########################################订单遍历##################################################### -->
 					
-					<div class="dkuang clearfix deng" v-for="(item,index) in myOrderList">
+					<div class="dkuang clearfix deng" v-for="(item,index) in myOrderList" >
 						<p class="one fl" :class="{'Receiving':true}">{{item.status}}</p>
-						<div class="clearfix" v-if="['已发货','已到达'].includes(item.status)">
+						<div class="clearfix" v-if="['待收货'].includes(item.status)">
 							<div class="fl vewwl"  @mouseover="mouseover(index)" @mouseleave="mouseleave()">
 								<a href="wuliu" class="ckwl"  >查看物流</a>
 								<div class="wuliu" v-show="show===index"  @mouseover="mouseover(index)">
@@ -309,7 +298,8 @@
 		el:"#app",
 		data:{
 			myOrderList:[],
-			show:-1
+			show:-1,
+			ordersStatus:""
 		},
 		methods:{
 			init:function(){
@@ -324,8 +314,24 @@
 			},
 			mouseleave:function(){
 				this.show=-1;
+			},
+			allOrders:function(){//全部有效订单
+				
+			},
+			noPayment:function(){//未支付
+				
+			},
+			noShipping:function(){//未发货
+				
+			},
+			waitReceiving:function(){//未收货
+				
+			},
+			noComment:function(){//未评论
+				
 			}
 		},
+		
 		created:function(){
 			this.init();
 		}
