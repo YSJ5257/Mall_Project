@@ -2,6 +2,7 @@ package com.dt95.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,23 +10,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.dt95.pojo.User;
-import com.dt95.service.UserService;
-import com.dt95.service.impl.UserServiceImpl;
+import com.dt95.pojo.Goods;
+import com.dt95.service.GoodsIdService;
+import com.dt95.service.impl.GoodsIdServiceImpl;
+import com.google.gson.Gson;
 
 /**
- * Servlet implementation class UserServlet
+ * Servlet implementation class IdeaServlet2
  */
-@WebServlet("/userServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet("/ideaServlet2")
+public class IdeaServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserServlet() {
+    public IdeaServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,35 +36,24 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		HttpSession re = request.getSession();
-		//登录
-		String uname =  request.getParameter("uname");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String pwd = request.getParameter("pwd");
-		/*System.err.println(phone+pwd);*/
+		response.setContentType("application/json;charset=utf-8");
+		GoodsIdService gd = new GoodsIdServiceImpl();
+		List<Goods> list1 = gd.queryGoods1();
+		List<Goods> list2 = gd.queryGoods2();
+		List<Goods> list3 = gd.queryGoods3();
 		
-		re.setAttribute("uname", uname);
-		re.setAttribute("email", email);
-		re.setAttribute("phone", phone);
-		re.setAttribute("pwd", pwd);
-		UserService us = new UserServiceImpl();
-		//验证登录
-		boolean findUserLoginInfo = us.findUserLoginInfo(uname, pwd);
-		
-		if(findUserLoginInfo){
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}else{
-			/*string = "welcome！"+parameter;*/
-			response.sendRedirect("reg");
-		}
-		
+		List<List<Goods>> lists = new ArrayList<List<Goods>>();
+		lists.add(list1);
+		lists.add(list2);
+		lists.add(list3);
+		Gson gson  = new Gson();
+		String ea = gson.toJson(lists);
 		PrintWriter out = response.getWriter();
-		out.write(11);
+		out.write(ea);
 		out.flush();
 		out.close();
-}
+	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
