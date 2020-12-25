@@ -11,6 +11,6 @@ public interface UserDao {
 	    boolean findUserRegInfo(String email );
 	  //查询phone
 	    boolean findUserPhoneInfo(String phone );
-	
-	    
+	  //查询账户
+	    boolean findUserName(String username );
 }

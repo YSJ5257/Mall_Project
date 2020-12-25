@@ -51,9 +51,14 @@ public class UserServlet extends HttpServlet {
 		UserService us = new UserServiceImpl();
 		//验证登录
 		boolean findUserLoginInfo = us.findUserLoginInfo(uname, pwd);
-		
-		if(findUserLoginInfo){
+		boolean findUserName = us.findUserName(uname);
+		if(findUserName){
+			System.out.println("密码错误请重新输入！");
+			request.getRequestDispatcher("login").forward(request, response);
+			return;
+		}else if(findUserLoginInfo){
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+			return;
 		}else{
 			/*string = "welcome！"+parameter;*/
 			response.sendRedirect("reg");

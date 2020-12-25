@@ -27,29 +27,42 @@ public class UserRegServlet extends HttpServlet {
 		String pwds = request.getParameter("pwds");
 		String pwdes = request.getParameter("pwdes");
 		String verification = request.getParameter("verification");
-		System.out.println(emails);
-		System.out.println(pwds);
-		System.out.println(pwdes);
-		System.out.println(verification);
 		re.setAttribute("emails", emails);
 		re.setAttribute("pwds", pwds);
 		re.setAttribute("pwdes", pwdes);
 		re.setAttribute("verification_code", verification);
+		boolean aa = ("pwds".equals(pwdes));
+		
+		//判断输入邮箱是否为空，为空当前页刷新
+		System.out.println(emails.toString());
+		System.out.println(pwds.toString());
+		System.out.println(pwdes.toString());
+		if(emails.length()==0||!aa){
+			//response.setIntHeader("刷新",2);
+			System.out.println("密码不一致");
+			request.getRequestDispatcher("reg").forward(request, response);
+			return;
+		}
 		UserService us = new UserServiceImpl();
 		//查询是否注册过邮箱
-		boolean findUserRegInfo = us.findUserRegInfo(emails);
-		String string = "";
-		if(findUserRegInfo){
-			string = "账户已注册，请重新输入！";
-			request.getRequestDispatcher("reg").forward(request, response);
-		}else {
-			System.out.println("欢迎重新注册！");
-			//注册用户
+		boolean findUserLoginInfo = us.findUserLoginInfo(emails, pwds);
+		String str = "";
+		if(findUserLoginInfo){
+			str = "账户存在，请登录！";
+			request.getRequestDispatcher("login").forward(request, response);
+		}else{
 			int addUser = us.addUser(emails);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			if(addUser>0){
+				str = "注册成功！";
+				System.out.println("注册成功");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
 		}
+			
+		
+		//request.getRequestDispatcher("reg").forward(request, response);
 		PrintWriter out = response.getWriter();
-		out.write(string);
+		out.write(1111);
 		out.flush();
 		out.close();
 	}

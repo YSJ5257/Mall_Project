@@ -28,8 +28,8 @@ public class UserDaoImpl implements UserDao {
 		List<User> list = null;
 		boolean b = false;
 		try {
-			String sql = "SELECT * FROM user WHERE username = ? AND password=?";
-			list = qr.query(sql,new BeanListHandler<User>(User.class),username,password);
+			String sql = "SELECT * FROM user WHERE (username = ? or email = ? or phone = ? )AND password=?";
+			list = qr.query(sql,new BeanListHandler<User>(User.class),username,username,username,password);
 			if(list.size()>0){
 				b = true;
 			}
@@ -40,32 +40,27 @@ public class UserDaoImpl implements UserDao {
 	}
 	@Override
 	public boolean findUserRegInfo(String email) {
-		List<User> list = null;
-		boolean b = false;
-		try {
-			String sql = "SELECT * FROM user WHERE email = ?";
-			list = qr.query(sql,new BeanListHandler<User>(User.class),email);
-			if(list.size()>0){
-				b = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-			return b;
-		}
+		// TODO Auto-generated method stub
+		return false;
+	}
 	@Override
 	public boolean findUserPhoneInfo(String phone) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean findUserName(String username) {
 		List<User> list = null;
 		boolean b = false;
 		try {
-			String sql = "SELECT * FROM user WHERE phone = ?";
-			list = qr.query(sql,new BeanListHandler<User>(User.class),phone);
+			String sql = "SELECT * FROM user WHERE username = ?";
+			list = qr.query(sql,new BeanListHandler<User>(User.class),username);
 			if(list.size()>0){
 				b = true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			return b;
-	
+		return b;
 	}}
+	

@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService{
 		return ud.findUserPhoneInfo(phone);
 	}
 
+	@Override
+	public boolean findUserName(String username) {
+		// TODO Auto-generated method stub
+		return ud.findUserName(username);
+	}
+
 	
 
 }

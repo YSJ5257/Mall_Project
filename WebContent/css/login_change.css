@@ -6,7 +6,11 @@ p>.change{
     border-radius: 3px;
     color: #333;
 }
-
+#pwd{
+	 border: 1px solid #dbdbdb;
+    font-size: 20px;
+    padding-left: 10px;
+}
 
 
 
