@@ -4,38 +4,84 @@ import java.util.Date;
 
 public class Order {
 	private int order_id;
-	private int goods_id;
+	private int payment;
+	private String payment_type;
+	private int post_fee;
+	private int status; 
+	private Date create_time;
+	private String shipping_name;
 	private int user_id;
-	private Date order_time;
-	private int order_num;
-	private String order_type;
-	private int order_money;
-	
+	private int buy_rate; //买家是否评论 0 ，1
+	private Date payment_time;
+	private Date consign_time;
+	private Date end_time;
+	private Date closse_time;
+	private String order_number;//订单编号
 	public Order() {
 		super();
 	}
-	public Order(int order_id, int goods_id, int user_id, Date order_time, int order_num, String order_type,
-			int order_money) {
+	
+	public Order(int order_id, int payment, String payment_type, int post_fee, int status, Date create_time,
+			String shipping_name, int user_id, int buy_rate, Date payment_time, Date consign_time, Date end_time,
+			Date closse_time, String order_number) {
 		super();
 		this.order_id = order_id;
-		this.goods_id = goods_id;
+		this.payment = payment;
+		this.payment_type = payment_type;
+		this.post_fee = post_fee;
+		this.status = status;
+		this.create_time = create_time;
+		this.shipping_name = shipping_name;
 		this.user_id = user_id;
-		this.order_time = order_time;
-		this.order_num = order_num;
-		this.order_type = order_type;
-		this.order_money = order_money;
+		this.buy_rate = buy_rate;
+		this.payment_time = payment_time;
+		this.consign_time = consign_time;
+		this.end_time = end_time;
+		this.closse_time = closse_time;
+		this.order_number = order_number;
 	}
+
 	public int getOrder_id() {
 		return order_id;
 	}
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
-	public int getGoods_id() {
-		return goods_id;
+	public int getPayment() {
+		return payment;
 	}
-	public void setGoods_id(int goods_id) {
-		this.goods_id = goods_id;
+	public void setPayment(int payment) {
+		this.payment = payment;
+	}
+	public String getPayment_type() {
+		return payment_type;
+	}
+	public void setPayment_type(String payment_type) {
+		this.payment_type = payment_type;
+	}
+	public int getPost_fee() {
+		return post_fee;
+	}
+	public void setPost_fee(int post_fee) {
+		this.post_fee = post_fee;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Date getCreate_time() {
+		return create_time;
+	}
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
+	}
+	public String getShipping_name() {
+		return shipping_name;
+	}
+	public void setShipping_name(String shipping_name) {
+		this.shipping_name = shipping_name;
 	}
 	public int getUser_id() {
 		return user_id;
@@ -43,29 +89,44 @@ public class Order {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public Date getOrder_time() {
-		return order_time;
+	public int getBuy_rate() {
+		return buy_rate;
 	}
-	public void setOrder_time(Date order_time) {
-		this.order_time = order_time;
+	public void setBuy_rate(int buy_rate) {
+		this.buy_rate = buy_rate;
 	}
-	public int getOrder_num() {
-		return order_num;
+	public Date getPayment_time() {
+		return payment_time;
 	}
-	public void setOrder_num(int order_num) {
-		this.order_num = order_num;
+	public void setPayment_time(Date payment_time) {
+		this.payment_time = payment_time;
 	}
-	public String getOrder_type() {
-		return order_type;
+	public Date getConsign_time() {
+		return consign_time;
 	}
-	public void setOrder_type(String order_type) {
-		this.order_type = order_type;
+	public void setConsign_time(Date consign_time) {
+		this.consign_time = consign_time;
 	}
-	public int getOrder_money() {
-		return order_money;
+	public Date getEnd_time() {
+		return end_time;
 	}
-	public void setOrder_money(int order_money) {
-		this.order_money = order_money;
+	public void setEnd_time(Date end_time) {
+		this.end_time = end_time;
 	}
+	public Date getClosse_time() {
+		return closse_time;
+	}
+	public void setClosse_time(Date closse_time) {
+		this.closse_time = closse_time;
+	}
+
+	public String getOrder_number() {
+		return order_number;
+	}
+
+	public void setOrder_number(String order_number) {
+		this.order_number = order_number;
+	}
+	
 	
 }

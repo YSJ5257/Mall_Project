@@ -1,6 +1,7 @@
-$(function () {
+$(function () { 
     $(".num .sub").click(function () {
         var c = parseInt($(this).siblings("span").text());
+        var v=$(this).siblings("input").val();
         if (c <= 1) {
             $(this).attr("disabled", "disabled")
         } else {
@@ -9,11 +10,13 @@ $(function () {
             var d = $(this).parents(".number").prev().text().substring(1);
             $(this).parents(".th").find(".sAll").text("￥" + (c * d).toFixed(2));
             a();
-            b()
+            b();
+            cartNumber(v,c);
         }
     });
     $(".num .add").click(function () {
         var c = parseInt($(this).siblings("span").text());
+        var v=$(this).siblings("input").val();
         if (c >= 5) {
             confirm("限购5件")
         } else {
@@ -23,9 +26,15 @@ $(function () {
             $(this).parents(".th").find(".sAll").text("￥" + (c * d).toFixed(2));
             a();
             b()
+            cartNumber(v,c);
         }
     });
-
+    
+    function cartNumber(id,num){
+    	$.post("cartNumber",{cartId:id,number:num});
+    }
+    
+    
     function a() {
         var c = 0;
         var d = $(".th input[type='checkbox']:checked").length;

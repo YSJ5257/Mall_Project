@@ -1,14 +1,14 @@
 package com.dt95.pojo;
 
 public class ShoppingTrolley {
-	private int user_id;
-	private int shopping_trolley_id;
-	private int goods_id;
-	private String goods_describe;
-	private String specification_name;
-	private int specification_price;
-	private int specification_number;
-	private String specification_photo;
+	private int user_id; //用户id
+	private int shopping_trolley_id;  //id
+	private int goods_id;	//商品id
+	private String goods_describe;	//介绍
+	private String specification_name;  //规格商品名称
+	private int specification_price;	//价格
+	private int specification_number;	//数量
+	private String specification_photo;	//照片路径
 	
 	public ShoppingTrolley() {
 		super();
