@@ -11,14 +11,27 @@
 <body><!------------------------------head------------------------------>
 <div class="head">
     <div class="wrapper clearfix">
-        <div class="clearfix" id="top"><h1 class="fl"><a href="index"><img src="img/logo.png"/></a></h1>
-            <div class="fr clearfix" id="top1"><p class="fl"><a href="login">登录</a><a href="reg" id="reg">注册</a>
+        <div class="clearfix" id="top">
+        	<h1 class="fl">
+        		<a href="index"><img src="img/logo.png"/></a>
+        	</h1>
+            <div class="fr clearfix" id="top1">
+            <p class="fl">
+            	<a href="login">登录</a>
+            	<a href="reg" id="reg">注册</a>
             </p>
-                <form action="#" method="get" class="fl"><input type="text" placeholder="热门搜索：干花花瓶"/><input
-                        type="button"/></form>
-                <div class="btn fl clearfix"><a href="mygxin"><img src="img/grzx.png"/></a><a href="#" class="er1"><img
-                        src="img/ewm.png"/></a><a href="cart"><img src="img/gwc.png"/></a>
-                    <p><a href="#"><img src="img/smewm.png"/></a></p></div>
+                <form action="#" method="get" class="fl">
+                	<input type="text" placeholder="热门搜索：干花花瓶"/>
+                	<input
+                        type="button"/>
+                </form>
+                <div class="btn fl clearfix">
+                	<a href="mygxin"><img src="img/grzx.png"/></a>
+                	<a href="#" class="er1"><img
+                        src="img/ewm.png"/></a>
+                    <a href="cart"><img src="img/gwc.png"/></a>
+                    <p><a href="#"><img src="img/smewm.png"/></a></p>
+                </div>
             </div>
         </div>
         <ul class="clearfix" id="bott">
@@ -55,12 +68,18 @@
             </li>
             <li><a href="flowerDer">装饰摆件</a>
                 <div class="sList2">
-                    <div class="clearfix"><a href="proList">干花花艺</a><a href="vase_proList">花瓶花器</a></div>
+                    <div class="clearfix">
+                    	<a href="proList">干花花艺</a>
+                    	<a href="vase_proList">花瓶花器</a>
+                    </div>
                 </div>
             </li>
             <li><a href="decoration">布艺软饰</a>
                 <div class="sList2">
-                    <div class="clearfix"><a href="zbproList">桌布罩件</a><a href="bzproList">抱枕靠垫</a></div>
+                    <div class="clearfix">
+                    	<a href="zbproList">桌布罩件</a>
+                    	<a href="bzproList">抱枕靠垫</a>
+                    </div>
                 </div>
             </li>
             <li><a href="paint">墙式壁挂</a></li>

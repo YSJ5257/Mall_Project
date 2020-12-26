@@ -1,5 +1,8 @@
+<%@page import="com.dt95.pojo.Goods"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -11,14 +14,27 @@
 <body><!------------------------------head------------------------------>
 <div class="head">
     <div class="wrapper clearfix">
-        <div class="clearfix" id="top"><h1 class="fl"><a href="index.jsp"><img src="img/logo.png"/></a></h1>
-            <div class="fr clearfix" id="top1"><p class="fl"><a href="#" id="login">登录</a><a href="#" id="reg">注册</a>
-            </p>
-                <form action="#" method="get" class="fl"><input type="text" placeholder="搜索"/><input type="button"/>
+        <div class="clearfix" id="top">
+        	<h1 class="fl">
+        		<a href="index.jsp"><img src="img/logo.png"/></a>
+        	</h1>
+            <div class="fr clearfix" id="top1">
+            	<p class="fl">
+            		<a href="#" id="login">登录</a>
+            		<a href="#" id="reg">注册</a>
+            	</p>
+                <form action="#" method="get" class="fl">
+                	<input type="text" placeholder="搜索"/>
+                	<input type="button"/>
                 </form>
-                <div class="btn fl clearfix"><a href="mygxin"><img src="img/grzx.png"/></a><a href="#" class="er1"><img
-                        src="img/ewm.png"/></a><a href="cart"><img src="img/gwc.png"/></a>
-                    <p><a href="#"><img src="img/smewm.png"/></a></p></div>
+                <div class="btn fl clearfix">
+                	<a href="mygxin"><img src="img/grzx.png"/></a>
+                	<a href="#" class="er1"><img src="img/ewm.png"/></a>
+                    <a href="cart"><img src="img/gwc.png"/></a>
+                    <p>
+                    <a href="#"><img src="img/smewm.png"/></a>
+                    </p>
+                </div>
             </div>
         </div>
         <ul class="clearfix" id="bott">
@@ -50,17 +66,24 @@
                             <dt><img src="img/nav7.jpg"/></dt>
                             <dd>创意装饰</dd>
                         </dl>
-                    </a></div>
+                    </a>
+                    </div>
                 </div>
             </li>
             <li><a href="flowerDer">装饰摆件</a>
                 <div class="sList2">
-                    <div class="clearfix"><a href="proList">干花花艺</a><a href="vase_proList">花瓶花器</a></div>
+                    <div class="clearfix">
+                    	<a href="proList">干花花艺</a>
+                    	<a href="vase_proList">花瓶花器</a>
+                    </div>
                 </div>
             </li>
             <li><a href="decoration">布艺软饰</a>
                 <div class="sList2">
-                    <div class="clearfix"><a href="zbproList">桌布罩件</a><a href="bzproList">抱枕靠垫</a></div>
+                    <div class="clearfix">
+                    	<a href="zbproList">桌布罩件</a>
+                    	<a href="bzproList">抱枕靠垫</a>
+                    </div>
                 </div>
             </li>
             <li><a href="paint">墙式壁挂</a></li>
@@ -72,7 +95,10 @@
 <div class="banner"><a href="#"><img src="img/temp/banner1.jpg"/></a></div>
 <!-----------------address------------------------------->
 <div class="address">
-    <div class="wrapper clearfix"><a href="index.jsp">首页</a><span>/</span><a href="flowerDer" class="on">装饰摆件</a>
+    <div class="wrapper clearfix">
+    	<a href="index.jsp">首页</a>
+    	<span>/</span>
+    	<a href="flowerDer" class="on">装饰摆件</a>
     </div>
 </div><!-------------------current---------------------->
 <div class="current">
@@ -89,179 +115,63 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro01.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro02.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro03.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase01.jpg"></dt>
-            <dd>【最家】创意现代简约白瓷干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase02.jpg"></dt>
-            <dd>【最家】现代简约白色条纹干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase03.jpg"></dt>
-            <dd>【最家】北欧现代陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase04.jpg"></dt>
-            <dd>【最家】现代简约客厅茶几白色陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase05.jpg"></dt>
-            <dd>【最家】仿木纹漆金裂纹台面花瓶系列套装</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase06.jpg"></dt>
-            <dd>【最家】仿木竖条纹雅致台面花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro04.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro05.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro06.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro07.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro08.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro01.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro02.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro03.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro04.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro05.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro06.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro07.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/pro08.jpg"></dt>
-            <dd>【最家】跳舞兰仿真花干花</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
+   
+    <%
+    	List<Goods> list = (List<Goods>)request.getAttribute("list");
+    	
+    %>
+   
+   	<c:forEach items="${list }" var="a2">
+    	<li>
+	   		<a href="proDetail">
+		        <dl>
+		            <dt><img src="${a2.goods_photo}"></dt>
+		            <dd>${a2.goods_name}</dd>
+		            <dd>${a2.goods_price}</dd>
+		        </dl>
+	    	</a>
+	    </li>
+    </c:forEach>
+   
+   
+   
+   
+   
+   
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="img/temp/off.jpg"/>
-    <div class="tit clearfix"><h4 class="fl">【最家】非洲菊仿真花干花</h4><span class="fr">￥17.90</span></div>
+    <div class="tit clearfix">
+    	<h4 class="fl">【最家】非洲菊仿真花干花</h4>
+    	<span class="fr">￥17.90</span>
+    </div>
     <div class="proCon clearfix">
-        <div class="proImg fl"><img class="list" src="img/temp/proDet.jpg"/>
-            <div class="smallImg clearfix"><img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg"><img
-                    src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg"><img src="img/temp/proDet03.jpg"
-                                                                                          data-src="img/temp/proDet03_big.jpg"><img
-                    src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg"></div>
+        <div class="proImg fl">
+        	<img class="list" src="img/temp/proDet.jpg"/>
+            <div class="smallImg clearfix">
+            	<img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg">
+            	<img src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg">
+                <img src="img/temp/proDet03.jpg" data-src="img/temp/proDet03_big.jpg">                                                                 
+                <img src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg">
+            </div>
         </div>
         <div class="fr">
-            <div class="proIntro"><p>颜色分类</p>
-                <div class="smallImg clearfix categ"><p class="fl"><img src="img/temp/prosmall01.jpg" alt="白瓷花瓶+20支快乐花"
-                                                                        data-src="img/temp/proBig01.jpg"></p>
+            <div class="proIntro">
+            	<p>颜色分类</p>
+                <div class="smallImg clearfix categ">
+                	<p class="fl">
+                		<img src="img/temp/prosmall01.jpg" alt="白瓷花瓶+20支快乐花"
+                                                                        data-src="img/temp/proBig01.jpg">
+                    </p>
                     <p class="fl"><img src="img/temp/prosmall02.jpg" alt="白瓷花瓶+20支兔尾巴草"
-                                       data-src="img/temp/proBig02.jpg"></p>
-                    <p class="fl"><img src="img/temp/prosmall03.jpg" alt="20支快乐花" data-src="img/temp/proBig03.jpg"></p>
-                    <p class="fl"><img src="img/temp/prosmall04.jpg" alt="20支兔尾巴草" data-src="img/temp/proBig04.jpg"></p>
+                                       data-src="img/temp/proBig02.jpg">
+                    </p>
+                    <p class="fl">
+                    	<img src="img/temp/prosmall03.jpg" alt="20支快乐花" data-src="img/temp/proBig03.jpg">
+                    </p>
+                    <p class="fl">
+                    	<img src="img/temp/prosmall04.jpg" alt="20支兔尾巴草" data-src="img/temp/proBig04.jpg">
+                    </p>
                 </div>
                 <p>数量</p>
                 <div class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span class="fl"

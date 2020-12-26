@@ -1,5 +1,8 @@
+<%@page import="com.dt95.pojo.Goods"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -89,126 +92,50 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase01.jpg"></dt>
-            <dd>【最家】创意现代简约白瓷干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase02.jpg"></dt>
-            <dd>【最家】现代简约白色条纹干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase03.jpg"></dt>
-            <dd>【最家】北欧现代陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase04.jpg"></dt>
-            <dd>【最家】现代简约客厅茶几白色陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase05.jpg"></dt>
-            <dd>【最家】仿木纹漆金裂纹台面花瓶系列套装</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase06.jpg"></dt>
-            <dd>【最家】仿木竖条纹雅致台面花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase07.jpg"></dt>
-            <dd>【最家】地中海风情落地大花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase08.jpg"></dt>
-            <dd>【最家】东南亚复古做旧大花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase01.jpg"></dt>
-            <dd>【最家】创意现代简约白瓷干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase02.jpg"></dt>
-            <dd>【最家】现代简约白色条纹干花花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase03.jpg"></dt>
-            <dd>【最家】北欧现代陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase04.jpg"></dt>
-            <dd>【最家】现代简约客厅茶几白色陶瓷花瓶摆件</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase05.jpg"></dt>
-            <dd>【最家】仿木纹漆金裂纹台面花瓶系列套装</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase06.jpg"></dt>
-            <dd>【最家】仿木竖条纹雅致台面花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase07.jpg"></dt>
-            <dd>【最家】地中海风情落地大花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/vase08.jpg"></dt>
-            <dd>【最家】东南亚复古做旧大花瓶</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
+   
+   <%
+    	List<Goods> list = (List<Goods>)request.getAttribute("list");
+    	
+    %>
+   
+   	<c:forEach items="${list }" var="a3">
+    	<li>
+	   		<a href="proDetail">
+		        <dl>
+		            <dt><img src="${a3.goods_photo}"></dt>
+		            <dd>${a3.goods_name}</dd>
+		            <dd>${a3.goods_price}</dd>
+		        </dl>
+	    	</a>
+	    </li>
+    </c:forEach>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
-<div class="proDets"><img class="off" src="img/temp/off.jpg"/>
-    <div class="tit clearfix"><h4 class="fl">【最家】非洲菊仿真花干花</h4><span class="fr">￥17.90</span></div>
+<div class="proDets">
+	<img class="off" src="img/temp/off.jpg"/>
+    <div class="tit clearfix">
+    
+    
+    <h4 class="fl">【最家】非洲菊仿真花干花</h4>
+    <span class="fr">￥17.90</span></div>
     <div class="proCon clearfix">
         <div class="proImg fl"><img class="list" src="img/temp/proDet.jpg"/>
-            <div class="smallImg clearfix"><img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg"><img
-                    src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg"><img src="img/temp/proDet03.jpg"
+            <div class="smallImg clearfix">
+            	<img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg">
+            	<img
+                    src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg">
+                    <img src="img/temp/proDet03.jpg"
                                                                                           data-src="img/temp/proDet03_big.jpg"><img
                     src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg"></div>
         </div>

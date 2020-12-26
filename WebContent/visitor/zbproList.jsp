@@ -1,5 +1,10 @@
+<%@page import="com.dt95.pojo.Goods"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -89,118 +94,36 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb08.jpg"></dt>
-            <dd>【最家】清新乡村田园桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb07.jpg"></dt>
-            <dd>【最家】法式乡村复古桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb06.jpg"></dt>
-            <dd>【最家】清新简约防水桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb05.jpg"></dt>
-            <dd>【最家】北欧圣诞节防水桌布红色</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb04.jpg"></dt>
-            <dd>【最家】田园桌布防水防油布</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb03.jpg"></dt>
-            <dd>【最家】欧式家用小方桌台布</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb02.jpg"></dt>
-            <dd>【最家】地中海格子桌布</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb01.jpg"></dt>
-            <dd>【最家】欧式田园棉麻桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb08.jpg"></dt>
-            <dd>【最家】清新乡村田园桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb07.jpg"></dt>
-            <dd>【最家】法式乡村复古桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb06.jpg"></dt>
-            <dd>【最家】清新简约防水桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb05.jpg"></dt>
-            <dd>【最家】北欧圣诞节防水桌布红色</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb04.jpg"></dt>
-            <dd>【最家】田园桌布防水防油布</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb03.jpg"></dt>
-            <dd>【最家】欧式家用小方桌台布</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb02.jpg"></dt>
-            <dd>【最家】地中海格子桌布</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/zb01.jpg"></dt>
-            <dd>【最家】欧式田园棉麻桌布</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
+    
+    <%
+    	List<Goods> list = (List<Goods>)request.getAttribute("list");
+    	
+    %>
+    
+    
+    <c:forEach items="${list }" var="a4">
+    	<li>
+	   		<a href="proDetail">
+		        <dl>
+		            <dt><img src="${a4.goods_photo}"></dt>
+		            <dd>${a4.goods_name}</dd>
+		            <dd>${a4.goods_price}</dd>
+		        </dl>
+	    	</a>
+	    </li>
+    </c:forEach>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="img/temp/off.jpg"/>

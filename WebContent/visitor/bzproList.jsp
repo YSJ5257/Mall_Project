@@ -1,3 +1,6 @@
+<%@page import="com.dt95.pojo.Goods"%>
+<%@page import="java.util.List"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -90,118 +93,40 @@
     </div>
 </div><!----------------proList------------------------->
 <ul class="proList wrapper clearfix">
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz08.jpg"></dt>
-            <dd>【最家】清新乡村田园抱枕</dd>
-            <dd>￥19.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz07.jpg"></dt>
-            <dd>【最家】法式乡村复古抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz06.jpg"></dt>
-            <dd>【最家】时尚图案抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz05.jpg"></dt>
-            <dd>【最家】北欧时尚现代动物抱枕</dd>
-            <dd>￥59.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz04.jpg"></dt>
-            <dd>【最家】简约格子抱枕</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li>
-        <dl>
-            <dt><img src="img/temp/bz03.jpg"></dt>
-            <dd>【最家】纯色棉麻抱枕</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz02.jpg"></dt>
-            <dd>【最家】时尚现代叮当猫抱枕</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz01.jpg"></dt>
-            <dd>【最家】欧式现代棉麻抱枕</dd>
-            <dd>￥39.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz08.jpg"></dt>
-            <dd>【最家】清新乡村田园抱枕</dd>
-            <dd>￥19.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz07.jpg"></dt>
-            <dd>【最家】法式乡村复古抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz06.jpg"></dt>
-            <dd>【最家】时尚图案抱枕</dd>
-            <dd>￥17.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz05.jpg"></dt>
-            <dd>【最家】北欧时尚现代动物抱枕</dd>
-            <dd>￥59.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz04.jpg"></dt>
-            <dd>【最家】简约格子抱枕</dd>
-            <dd>￥20.90</dd>
-        </dl>
-    </a></li>
-    <li>
-        <dl>
-            <dt><img src="img/temp/bz03.jpg"></dt>
-            <dd>【最家】纯色棉麻抱枕</dd>
-            <dd>￥47.90</dd>
-        </dl>
-    </li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz02.jpg"></dt>
-            <dd>【最家】时尚现代叮当猫抱枕</dd>
-            <dd>￥37.90</dd>
-        </dl>
-    </a></li>
-    <li><a href="proDetail">
-        <dl>
-            <dt><img src="img/temp/bz01.jpg"></dt>
-            <dd>【最家】欧式现代棉麻抱枕</dd>
-            <dd>￥39.90</dd>
-        </dl>
-    </a></li>
+    
+    
+    
+    <%
+    	List<Goods> list = (List<Goods>)request.getAttribute("list");
+    	
+    %>
+   
+   	<c:forEach items="${list }" var="a5">
+    	<li>
+	   		<a href="proDetail">
+		        <dl>
+		            <dt><img src="${a5.goods_photo}"></dt>
+		            <dd>${a5.goods_name}</dd>
+		            <dd>${a5.goods_price}</dd>
+		        </dl>
+	    	</a>
+	    </li>
+    </c:forEach>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </ul><!----------------mask------------------->
 <div class="mask"></div><!-------------------mask内容------------------->
 <div class="proDets"><img class="off" src="img/temp/off.jpg"/>
@@ -223,16 +148,21 @@
                     <p class="fl"><img src="img/temp/prosmall04.jpg" alt="20支兔尾巴草" data-src="img/temp/proBig04.jpg"></p>
                 </div>
                 <p>数量&nbsp;&nbsp;库存<span>2096</span>件</p>
-                <div class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span class="fl"
+                <div class="num clearfix">
+                	<img class="fl sub" src="img/temp/sub.jpg"><span class="fl"
                                                                                            contentEditable="true">1</span><img
                         class="fl add" src="img/temp/add.jpg">
                     <p class="please fl">请选择商品属性!</p></div>
             </div>
-            <div class="btns clearfix"><a href="#2"><p class="buy fl">立即购买</p></a><a href="#2"><p class="cart fr">
+            <div class="btns clearfix">
+            	<a href="#2"><p class="buy fl">立即购买</p></a>
+            	<a href="#2"><p class="cart fr">
                 加入购物车</p></a></div>
         </div>
     </div>
+    
     <a class="more" href="proDetail">查看更多细节</a></div><!--返回顶部-->
+    
 <div class="gotop"><a href="cart">
     <dl class="goCart">
         <dt><img src="img/gt1.png"/></dt>

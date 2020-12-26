@@ -1,5 +1,9 @@
+<%@page import="com.dt95.pojo.Goods"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,8 +90,26 @@
                         src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg"></div>
             </div>
             <div class="fr intro">
-                <div class="title"><h4>【最家】非洲菊仿真花干花</h4>
-                    <p>【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方】【无理由退换货】【包邮】【白色现代简约花瓶】</p><span>￥59.90</span></div>
+                <div class="title">
+                
+                
+                
+                
+                
+        <h4>【最家】非洲菊仿真花干花</h4>
+            <p>【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方】【无理由退换货】【包邮】【白色现代简约花瓶】</p>
+            <span>￥59.90</span> 
+                
+                
+
+
+
+
+
+
+
+                </div>
+                
                 <div class="proIntro"><p>颜色分类</p>
                     <div class="smallImg clearfix categ"><p class="fl"><img src="img/temp/prosmall01.jpg"
                                                                             alt="白瓷花瓶+20支快乐花"
